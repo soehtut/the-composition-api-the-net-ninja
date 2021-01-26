@@ -1,31 +1,34 @@
 <template>
   <div class="home">
     Home
-    <p ref="p">My name is {{ name }} and age is {{ age }}</p>
-    <button @click="handleClick">click me</button>
-    <button @click="age++">Increase Age</button>
-    <input type="text" v-model="name">
+    <p>{{ cp.name }} - {{ cp.age }}</p>
+    <button @click="updateCP">Update CP</button>
+    <p>{{ im.name }} - {{ im.age }}</p>
+    <button @click="updateIM">Update IM</button>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 
 export default {
   name: 'Home',
   setup() {
-    let name = ref('John')
-    let age = ref(30)
 
-    const p = ref(null)
-
-    const handleClick = () => {
-      name.value = 'Peter'
-      age.value = 20
+    // ref
+    const cp = ref({name: 'Steve', age: 80})
+    const updateCP = () => {
+      cp.value.age++
     }
 
-    // return { name: name, age: age}
-    return { name, age, handleClick, p}
+    // reactive (Primitive value are not reactive)
+    const im = reactive({name: 'Tony', age: 40})
+    const updateIM = () => {
+      im.age++
+    }
+    
+
+    return { cp, updateCP, im, updateIM }
   }
 }
 </script>
