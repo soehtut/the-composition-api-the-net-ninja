@@ -1,34 +1,27 @@
 <template>
   <div class="home">
-    Home
-    <p>{{ cp.name }} - {{ cp.age }}</p>
-    <button @click="updateCP">Update CP</button>
-    <p>{{ im.name }} - {{ im.age }}</p>
-    <button @click="updateIM">Update IM</button>
+    <h1>Home</h1>
+    <input type="text" v-model="search">
+    <p>search term - {{ search }}</p>
+    <div v-for="avenger in matchingAvengers" :key="avenger">{{ avenger }}</div>
   </div>
 </template>
 
 <script>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
 
 export default {
   name: 'Home',
   setup() {
 
-    // ref
-    const cp = ref({name: 'Steve', age: 80})
-    const updateCP = () => {
-      cp.value.age++
-    }
+    const search = ref('')
+    const avengers = ref(['Peter', 'Tony', 'Steve', 'Banner', 'Thor', 'Loki'])
 
-    // reactive (Primitive value are not reactive)
-    const im = reactive({name: 'Tony', age: 40})
-    const updateIM = () => {
-      im.age++
-    }
-    
+    const matchingAvengers = computed(() => {
+      return avengers.value.filter(avenger => avenger.includes(search.value))
+    })
 
-    return { cp, updateCP, im, updateIM }
+    return { avengers, search, matchingAvengers }
   }
 }
 </script>
