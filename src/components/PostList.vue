@@ -1,5 +1,5 @@
 <template>
-    <div v-for="post in posts" :key="post.id">
+    <div v-for="post in posts" :key="post.id" class="post">
         <SinglePost :post="post" />
     </div>
 </template>
@@ -16,3 +16,9 @@ export default {
     }
 }
 </script>
+
+<style>
+    .post {
+        margin-bottom: 20px;
+    }
+</style>

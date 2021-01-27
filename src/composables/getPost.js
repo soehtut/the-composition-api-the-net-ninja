@@ -7,6 +7,11 @@ const error = ref(null)
 
 const load = async() => {
     try {
+        // simulate delay
+        await new Promise(resolve => {
+            setTimeout(resolve, 2000)
+        })
+        
         let data = await fetch('http://localhost:3000/posts/' + id)
         post.value = await data.json()
         if(!data.ok) {
