@@ -6,9 +6,23 @@
 
 <script>
 import SinglePost from './SinglePost.vue'
+import { onMounted, onUnmounted, onUpdated } from 'vue';
 
 export default {
     components: { SinglePost },
-    props: ['posts']
+    props: ['posts'],
+    setup() {
+        onMounted(() => {
+            console.log('component mounted')
+        })
+
+        onUnmounted(() => {
+            console.log('component unmounted')
+        })
+
+        onUpdated(() => {
+            console.log('component updated')
+        })
+    }
 }
 </script>

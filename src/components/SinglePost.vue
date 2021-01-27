@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import { computed } from 'vue';
+import { computed, onMounted, onUnmounted, onUpdated } from 'vue';
 
 export default {
     props: ['post'],
