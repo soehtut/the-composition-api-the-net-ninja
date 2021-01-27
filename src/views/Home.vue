@@ -11,31 +11,17 @@
 <script>
 import { ref, reactive, computed, watch, watchEffect } from 'vue'
 import PostList from '../components/PostList.vue'
+import getPosts from '../composables/getPosts'
 
 export default {
   name: 'Home',
   components: { PostList },
   setup() {
 
-    const posts = ref([])
-    const error = ref(null)
-
-    const load = async() => {
-      try {
-        let data = await fetch('http://localhost:3000/posts')
-        posts.value = await data.json()
-        if(!data.ok) {
-          throw Error('data not available')
-        }
-      } catch(err) {
-        error.value = err.message
-        console.log(error.value)
-      }
-    }
-
+    const { posts, error, load } = getPosts()
     load()
-
     return { posts, error }
+    
   }
 }
 </script>
