@@ -1,24 +1,33 @@
 {
-    "posts": [
-        {
-            "id": 1,
-            "title": "HTML Basics",
-            "body": "lorem ipsum",
-            "tags": [
-                "web",
-                "html",
-                "design"
-            ]
-        },
-        {
-            "id": 2,
-            "title": "CSS Basics",
-            "body": "lorem ipsum",
-            "tags": [
-                "web",
-                "css",
-                "design"
-            ]
-        }
-    ]
+  "posts": [
+    {
+      "id": 1,
+      "title": "HTML Basics",
+      "body": "lorem ipsum",
+      "tags": [
+        "web",
+        "html",
+        "design"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "CSS Basics",
+      "body": "lorem ipsum",
+      "tags": [
+        "web",
+        "css",
+        "design"
+      ]
+    },
+    {
+      "title": "sdf",
+      "body": "sdf",
+      "tags": [
+        "html",
+        "css"
+      ],
+      "id": 3
+    }
+  ]
 }
