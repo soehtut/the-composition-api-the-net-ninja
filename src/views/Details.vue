@@ -4,9 +4,6 @@
         <h3>{{ post.title }}</h3>
         <div>{{ post.body }}</div>
     </div>
-    <div v-else>
-        <Spinner />
-    </div>
 </template>
 
 <script>
